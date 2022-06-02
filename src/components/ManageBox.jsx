@@ -1,11 +1,18 @@
 import React from 'react'
 import arrowDown from '../images/arrowDown.svg';
 import '../panelStyle.css';
-import ManageCell from './ManageCell';
+import ProfitCell from './ProfitCell';
+import MenuCell from './MenuCell';
+import StorageCell from './StorageCell';
 import PropTypes from 'prop-types';
+import {storageArray} from '../data.js';
 
-function ManageBox({bgColor, titleBGColor, title, titleColor}) {
-  const slides = [1,2,3,4,5,6,7,8];
+function ManageBox({bgColor, titleBGColor, title, titleColor, type, number}) {
+  const slides = [];
+  for (let i = 0; i < number; i++) {
+    slides.push(i);
+  }
+  let outputCell;
 
   return (
     <div className="containerManage" style={{backgroundColor: bgColor}}>
@@ -14,9 +21,21 @@ function ManageBox({bgColor, titleBGColor, title, titleColor}) {
         </div>
         <div className="manageSlides" id='manageScroll'>
           {slides.map((slide,index)=>{
-              return(
-                  <ManageCell/>
-              );
+            switch (type) {
+              case 1:
+                outputCell = <ProfitCell/>;
+                break;
+              case 2:
+                outputCell = <MenuCell/>;
+                break;
+              case 3:
+                outputCell = <StorageCell sign={storageArray[index].isPositive} percentage={storageArray[index].value}/>;
+                break;
+              default:
+                outputCell = <ProfitCell/>;
+                break;
+            }
+            return(outputCell);
           })}
         </div>
         <img src={arrowDown} alt="" id='arrowDown' />
@@ -28,7 +47,8 @@ ManageBox.defaultProps = {
   bgColor: '#8D99AE',
   titleBGColor: '#ECEFF0',
   title: 'Last Profit',
-  titleColor: 'black'
+  titleColor: 'black',
+  type: 1,
 }
 
 ManageBox.propTypes = {
@@ -36,6 +56,7 @@ ManageBox.propTypes = {
   titleBGColor: PropTypes.string,
   title: PropTypes.string,
   titleColor: PropTypes.string,
+  type: PropTypes.number,
 }
 
 export default ManageBox
