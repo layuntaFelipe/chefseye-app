@@ -1,16 +1,15 @@
 import React from 'react'
-import burger from '../images/burger.svg';
 import '../panelStyle.css';
 
-function InfoBox() {
+function InfoBox({name, price, time, image}) {
   return (
     <div className="containerInfo">
         <div className="info">
-            <h3>Chef's Burger</h3>
-            <h2>+$14.99</h2>
-            <small>15 seconds ago</small>
+            <h3>{name}</h3>
+            <h2>+${price}</h2>
+            <small>{time} seconds ago</small>
         </div>
-        <img src={burger} alt="" />
+        <img src={image} alt={name} />
     </div>
   )
 }

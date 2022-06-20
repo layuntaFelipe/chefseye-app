@@ -2,9 +2,9 @@ import React from 'react';
 import '../panelStyle.css';
 import { MdChevronLeft,MdChevronRight } from 'react-icons/md';
 import InfoBox from './InfoBox';
+import {lastOrders} from '../data.js';
 
 function Slider() {
-  const slides = [1,2,3,4,5,6,7,8];
 
   const slideLeft = () => {
     let slider = document.getElementById('slider');
@@ -19,9 +19,9 @@ function Slider() {
   return (
     <div id='main-slider-container'>
         <div id="slider">
-            {slides.map((slide,index)=>{
+            {lastOrders.map((slide,index)=>{
                     return(
-                        <InfoBox/>
+                        <InfoBox name={slide.name} price={slide.price} time={slide.timeAgo} image={slide.image} key={index}/>
                     );
                 })}
         </div>

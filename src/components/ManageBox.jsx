@@ -5,7 +5,7 @@ import ProfitCell from './ProfitCell';
 import MenuCell from './MenuCell';
 import StorageCell from './StorageCell';
 import PropTypes from 'prop-types';
-import {storageArray} from '../data.js';
+import {storageArray, menuArray, lastProfitArray} from '../data.js';
 
 function ManageBox({bgColor, titleBGColor, title, titleColor, type, number}) {
   const slides = [];
@@ -23,16 +23,16 @@ function ManageBox({bgColor, titleBGColor, title, titleColor, type, number}) {
           {slides.map((slide,index)=>{
             switch (type) {
               case 1:
-                outputCell = <ProfitCell/>;
+                outputCell = <ProfitCell price={lastProfitArray[index].value} isPositive={lastProfitArray[index].isPositive} key={index}/>;
                 break;
               case 2:
-                outputCell = <MenuCell/>;
+                outputCell = <MenuCell name={menuArray[index].name} price={menuArray[index].price} image={menuArray[index].image} key={index}/>;
                 break;
               case 3:
-                outputCell = <StorageCell sign={storageArray[index].isPositive} percentage={storageArray[index].value}/>;
+                outputCell = <StorageCell key={index} sign={storageArray[index].isPositive} percentage={storageArray[index].value}/>;
                 break;
               default:
-                outputCell = <ProfitCell/>;
+                outputCell = <ProfitCell key={index}/>;
                 break;
             }
             return(outputCell);

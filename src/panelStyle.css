@@ -10,22 +10,34 @@
     position: relative;
 }
 
-ul {
+.headerList {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-ul li {
+.headerList li {
     display: inline-block;
     margin: 0 1rem 0 1rem;
     font-weight: 700;
     font-size: 1.1rem;
+    cursor: pointer;
+}
+.headerList li:hover{
+    color: #EF233C;
 }
 
 .profile {
     display: block;
+    cursor: pointer;
+}
+.profile:hover{
+    color: #EF233C;
+    text-decoration: underline;
+}
+.profile img:hover {
+    opacity: 0.8;
 }
 
 .profile h4 {
@@ -38,7 +50,6 @@ ul li {
 
 .active {
     color: #EF233C;
-    font-family: 'Abel', sans-serif;
 }
 
 .sliderContainer {
@@ -183,6 +194,18 @@ ul li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.infoCell img {
+    cursor: pointer;
+}
+.infoCell img:hover {
+    opacity: 0.8;
+}
+.infoCellStorage img {
+    cursor: pointer;
+}
+.infoCellStorage img:hover {
+    opacity: 0.8;
 }
 .infoCellProfit h4 {
     color: black;
