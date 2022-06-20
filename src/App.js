@@ -1,11 +1,12 @@
 import './App.css';
-import Panel from './pages/Panel';
+import QRCode from './pages/QRCode';
 
 function App() {
 
   return (
     <>
-      <Panel/>
+      {/* <Panel/> */}
+      <QRCode/>
     </>
   );
 }

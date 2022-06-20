@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 
 
-function Header() {
+function Header({itemOn}) {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -34,7 +34,7 @@ function Header() {
         {
           headerLinkNames.map((links, index) => {
             return (
-              <li className={index === 0 ? 'active' : ''} key={index} onMouseOver={checkForActive}>{links}</li>
+              <li className={index === itemOn ? 'active' : ''} key={index} onMouseOver={checkForActive}>{links}</li>
             );
           })
         }

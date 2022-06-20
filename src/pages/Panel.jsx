@@ -8,7 +8,7 @@ import { storageArray } from '../data.js';
 const Panel = () => {
   return (
     <>
-        <Header />
+        <Header itemOn={0} />
         <Slider />
         <div className='mainBody'>
             <ManageBox type={1} number={6} />
